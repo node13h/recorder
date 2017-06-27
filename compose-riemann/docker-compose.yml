@@ -1,0 +1,13 @@
+---
+
+riemann:
+  image: riemann
+  ports:
+    - "5555:5555"
+    - "5555:5555/udp"
+    - "5556:5556"
+
+riemann-dash:
+  image: riemann-dash
+  ports:
+    - "4567:4567"
