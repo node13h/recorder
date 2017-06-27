@@ -17,4 +17,15 @@ riemann-dash:
 influxdb:
   image: influxdb
   volumes:
-    - riemann-influxdb:/var/lib/influxdb
+    - riemann-influxdb-lib:/var/lib/influxdb
+
+grafana:
+  image: grafana/grafana
+  volumes:
+    - riemann-grafana-lib:/var/lib/grafana
+    - riemann-grafana-etc:/etc/grafana
+    - riemann-grafana-log:/var/log/grafana
+  ports:
+    - "3000:3000"
+  links:
+    - influxdb
