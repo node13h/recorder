@@ -6,8 +6,15 @@ riemann:
     - "5555:5555"
     - "5555:5555/udp"
     - "5556:5556"
+  links:
+    - influxdb
 
 riemann-dash:
   image: riemann-dash
   ports:
     - "4567:4567"
+
+influxdb:
+  image: influxdb
+  volumes:
+    - riemann-influxdb:/var/lib/influxdb
