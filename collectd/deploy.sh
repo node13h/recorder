@@ -39,6 +39,18 @@ LoadPlugin aggregation
 EOF
 }
 
+
+interface_config () {
+    cat <<EOF
+<Plugin "interface">
+  Interface "lo"
+  Interface "sit0"
+  IgnoreSelected true
+</Plugin>
+EOF
+}
+
+
 riemann_write_config () {
     local riemann_server="$1"
 
@@ -68,6 +80,7 @@ yum install collectd collectd-write_riemann
 setsebool -P collectd_tcp_network_connect 1
 
 sys_config >/etc/collectd.d/sys.conf
+interface_config >/etc/collectd.d/interface.conf
 riemann_write_config "${1:-localhost}" >/etc/collectd.d/riemann.conf
 
 systemctl enable collectd
