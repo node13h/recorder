@@ -85,7 +85,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "",
+              "alias": "user",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -130,7 +130,7 @@
               ]
             },
             {
-              "alias": "",
+              "alias": "system",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -177,7 +177,7 @@
               ]
             },
             {
-              "alias": "",
+              "alias": "wait",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -222,7 +222,7 @@
               ]
             },
             {
-              "alias": "",
+              "alias": "steal",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -267,7 +267,7 @@
               ]
             },
             {
-              "alias": "",
+              "alias": "softirq",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -312,7 +312,7 @@
               ]
             },
             {
-              "alias": "",
+              "alias": "nice",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -357,7 +357,7 @@
               ]
             },
             {
-              "alias": "",
+              "alias": "interrupt",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -402,7 +402,7 @@
               ]
             },
             {
-              "alias": "",
+              "alias": "idle",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -516,6 +516,7 @@
           "steppedLine": false,
           "targets": [
             {
+              "alias": "used",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -534,6 +535,8 @@
               "measurement": "memory/memory-used",
               "orderByTime": "ASC",
               "policy": "default",
+              "query": "SELECT mean(\"value\") FROM \"memory/memory-used\" WHERE \"host\" =~ /^$host$/ AND $timeFilter GROUP BY time($__interval) fill(null)",
+              "rawQuery": false,
               "refId": "A",
               "resultFormat": "time_series",
               "select": [
@@ -559,6 +562,7 @@
               ]
             },
             {
+              "alias": "buffered",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -602,6 +606,7 @@
               ]
             },
             {
+              "alias": "cached",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -645,6 +650,7 @@
               ]
             },
             {
+              "alias": "slab_recl",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -688,6 +694,7 @@
               ]
             },
             {
+              "alias": "slab_unrecl",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -731,6 +738,7 @@
               ]
             },
             {
+              "alias": "free",
               "dsType": "influxdb",
               "groupBy": [
                 {
@@ -828,8 +836,11 @@
         "allValue": null,
         "current": {
           "selected": true,
+          "tags": [],
           "text": "All",
-          "value": "$__all"
+          "value": [
+            "$__all"
+          ]
         },
         "hide": 0,
         "includeAll": true,
@@ -889,5 +900,5 @@
   },
   "timezone": "browser",
   "title": "Test",
-  "version": 23
+  "version": 27
 }
