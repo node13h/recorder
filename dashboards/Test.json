@@ -51,7 +51,13 @@
             "cpu-average/cpu-steal.mean": "#6D1F62",
             "cpu-average/cpu-system.mean": "#890F02",
             "cpu-average/cpu-user.mean": "#CCA300",
-            "cpu-average/cpu-wait.mean": "#99440A"
+            "cpu-average/cpu-wait.mean": "#99440A",
+            "idle": "#629E51",
+            "interrupt": "#DEDAF7",
+            "softirq": "#3F2B5B",
+            "steal": "#6D1F62",
+            "system": "#BF1B00",
+            "user": "#EAB839"
           },
           "bars": false,
           "dashLength": 10,
@@ -870,7 +876,7 @@
     ]
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -900,5 +906,5 @@
   },
   "timezone": "browser",
   "title": "Test",
-  "version": 27
+  "version": 30
 }
