@@ -14,34 +14,14 @@ LoadPlugin load
 LoadPlugin memory
 LoadPlugin processes
 LoadPlugin swap
-
-LoadPlugin aggregation
-
-<Plugin "aggregation">
-    <Aggregation>
-        Plugin "cpu"
-        Type "cpu"
-
-        SetPlugin "cpu"
-        SetPluginInstance "%{aggregation}"
-
-        GroupBy "Host"
-        GroupBy "TypeInstance"
-
-        CalculateNum false
-        CalculateSum false
-        CalculateAverage true
-        CalculateMinimum false
-        CalculateMaximum false
-        CalculateStddev false
-    </Aggregation>
-</Plugin>
 EOF
 }
 
 
 interface_config () {
     cat <<EOF
+LoadPlugin interface
+
 <Plugin "interface">
   Interface "lo"
   Interface "sit0"
@@ -75,7 +55,7 @@ EOF
 }
 
 
-yum install collectd collectd-write_riemann
+yum -y install collectd collectd-write_riemann
 
 setsebool -P collectd_tcp_network_connect 1
 
