@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.3.2"
+      "version": "4.4.2"
     },
     {
       "type": "panel",
@@ -38,7 +38,7 @@
   "hideControls": false,
   "id": null,
   "links": [],
-  "refresh": "5s",
+  "refresh": "5m",
   "rows": [
     {
       "collapse": false,
@@ -1093,9 +1093,9 @@
         "current": {},
         "datasource": "${DS_RIEMANN}",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "",
-        "multi": true,
+        "multi": false,
         "name": "host",
         "options": [],
         "query": "SHOW TAG VALUES WITH KEY = \"host\"",
@@ -1118,7 +1118,7 @@
         "multi": true,
         "name": "cpu",
         "options": [],
-        "query": "show tag values with key = \"plugin_instance\" where plugin = 'cpu' and host =~ /$host/ ",
+        "query": "SHOW TAG VALUES WITH KEY = \"plugin_instance\" WHERE plugin = 'cpu' AND host =~ /$host/ ",
         "refresh": 1,
         "regex": "",
         "sort": 0,
@@ -1138,7 +1138,7 @@
         "multi": true,
         "name": "interface",
         "options": [],
-        "query": "show tag values with key = \"plugin_instance\" where plugin = 'interface' and host =~ /$host/",
+        "query": "SHOW TAG VALUES WITH KEY = \"plugin_instance\" WHERE plugin = 'interface' AND host =~ /$host/",
         "refresh": 1,
         "regex": "",
         "sort": 0,
@@ -1180,6 +1180,6 @@
     ]
   },
   "timezone": "browser",
-  "title": "Test",
-  "version": 77
+  "title": "System",
+  "version": 82
 }
