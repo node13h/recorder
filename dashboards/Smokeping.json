@@ -363,8 +363,8 @@
       "repeat": "host",
       "repeatIteration": null,
       "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
+      "showTitle": true,
+      "title": "$host",
       "titleSize": "h6"
     }
   ],
@@ -446,5 +446,5 @@
   },
   "timezone": "browser",
   "title": "Smokeping",
-  "version": 32
+  "version": 35
 }
